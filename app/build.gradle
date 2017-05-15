@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.1'
+
+    defaultConfig {
+        applicationId "com.taha.alrehab"
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile files('libs/gson-2.4.jar')
+    compile files('libs/signalr-client-sdk.jar')
+    compile files('libs/signalr-client-sdk-android.jar')
+    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+
+}

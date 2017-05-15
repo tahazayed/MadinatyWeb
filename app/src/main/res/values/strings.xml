@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Al Rehab</string>
+    <string name="SiteURL">http://android.alrehablife.com/</string>
+    <string name="ImagesURL">http://cms.alrehablife.com/</string>
+    <string name="SiteDomain">alrehablife.com</string>
+    <string name="NotificationAPI">http://www.alrehablife.com/api/Notifications/GetMyNotifications/?UserID=</string>
+    <string name="NotificationsHUB">http://www.alrehablife.com/</string>
+</resources>

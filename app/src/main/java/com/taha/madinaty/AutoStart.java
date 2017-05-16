@@ -1,11 +1,11 @@
-package com.taha.alrehab;
+package com.taha.madinaty;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.taha.alrehab.BackgroundServices.NotificationsService;
+import com.taha.madinaty.BackgroundServices.NotificationsService;
 
 public class AutoStart extends BroadcastReceiver {
     public void onReceive(Context arg0, Intent arg1) {

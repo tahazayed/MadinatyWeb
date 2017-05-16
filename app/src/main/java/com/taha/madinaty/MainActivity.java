@@ -1,4 +1,4 @@
-package com.taha.alrehab;
+package com.taha.madinaty;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,8 +26,8 @@ import android.widget.Toast;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.taha.alrehab.BackgroundServices.NotificationsService;
-import com.taha.alrehab.Helpers.ConnectionHelper;
+import com.taha.madinaty.BackgroundServices.NotificationsService;
+import com.taha.madinaty.Helpers.ConnectionHelper;
 
 //import android.webkit.WebChromeClient;
 //import android.widget.ProgressBar;
@@ -335,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     // Otherwise, set the URL to null.
                     Uri.parse("http://host/path"),
                     // TODO: Make sure this auto-generated app deep link URI is correct.
-                    Uri.parse("android-app://com.taha.alrehab/http/host/path")
+                    Uri.parse("android-app://com.taha.madinaty/http/host/path")
             );
             AppIndex.AppIndexApi.start(client, viewAction);
         } catch (Exception e) {
@@ -357,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 // Otherwise, set the URL to null.
                 Uri.parse("http://host/path"),
                 // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.taha.alrehab/http/host/path")
+                Uri.parse("android-app://com.taha.madinaty/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();

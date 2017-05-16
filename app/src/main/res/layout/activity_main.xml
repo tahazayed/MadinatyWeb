@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#319C32"
+    android:background="#faa71a"
     android:keepScreenOn="false"
     android:paddingTop="30dp"
     tools:context=".MainActivity">
@@ -17,7 +17,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="#319C32"
+        android:background="#faa71a"
         android:gravity = "center_vertical|center_horizontal"
         android:keepScreenOn="false" />
     <!--    <ProgressBar

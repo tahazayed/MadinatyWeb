@@ -1,4 +1,4 @@
-package com.taha.alrehab.BackgroundServices;
+package com.taha.madinaty.BackgroundServices;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,11 +12,11 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.taha.alrehab.BusinessEntities.AlrehabNotification;
-import com.taha.alrehab.DB.UserDBHandler;
-import com.taha.alrehab.JSON.AlrehabNotificationsJSONHandler;
-import com.taha.alrehab.MainActivity;
-import com.taha.alrehab.R;
+import com.taha.madinaty.BusinessEntities.MadinatyNotification;
+import com.taha.madinaty.DB.UserDBHandler;
+import com.taha.madinaty.JSON.AlrehabNotificationsJSONHandler;
+import com.taha.madinaty.MainActivity;
+import com.taha.madinaty.R;
 
 import java.util.List;
 import java.util.Random;
@@ -146,7 +146,7 @@ public class NotificationsService extends Service implements AlrehabNotification
         isRunning = false;
         super.onDestroy();
         if (IsDebug) Log.i(TAG, "ondestroy!");
-        Intent broadcastIntent = new Intent("com.taha.alrehab.BackgroundServices.ActivityRecognition.RestartSensor");
+        Intent broadcastIntent = new Intent("com.taha.madinaty.BackgroundServices.ActivityRecognition.RestartSensor");
         sendBroadcast(broadcastIntent);
         if (timer != null) timer.cancel();
         if (IsDebug) Log.d(TAG, "Timer stopped...");
@@ -155,7 +155,7 @@ public class NotificationsService extends Service implements AlrehabNotification
     }
 
     @Override
-    public void onAlrehabNotificationsJSONHandlerClientResult(List<AlrehabNotification> list) {
+    public void onAlrehabNotificationsJSONHandlerClientResult(List<MadinatyNotification> list) {
         try {
             if (IsDebug)
                 Log.d(TAG, "onAlrehabNotificationsJSONHandlerJSONHandlerClientResult invoked..." + list.size());
@@ -167,7 +167,7 @@ public class NotificationsService extends Service implements AlrehabNotification
                 //NotificationManagerCompat.from(this).cancelAll();
                 NotificationManager nm = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
                 Resources res = getApplicationContext().getResources();
-                for (AlrehabNotification oAlrehabNotification : list) {
+                for (MadinatyNotification oAlrehabNotification : list) {
                     int msgId = rand.nextInt();
                     Intent notificationIntent = new Intent(this, MainActivity.class);
 
@@ -193,7 +193,7 @@ public class NotificationsService extends Service implements AlrehabNotification
                             .setContentText(oAlrehabNotification.get_body())
                             //.setExtras(extras)
                             .setOnlyAlertOnce(false)
-                            .setGroup("Alrehab")
+                            .setGroup("Madinaty")
                             .setGroupSummary(false)
                             .setCategory("news");
 

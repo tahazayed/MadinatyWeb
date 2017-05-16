@@ -1,8 +1,8 @@
-package com.taha.alrehab.BusinessEntities;
+package com.taha.madinaty.BusinessEntities;
 
 import java.util.Date;
 
-public class AlrehabNotification {
+public class MadinatyNotification {
     private int _id;
     private String _title;
     private String _body;
@@ -14,10 +14,10 @@ public class AlrehabNotification {
 
     private int _type;
 
-    public AlrehabNotification() {
+    public MadinatyNotification() {
     }
 
-    public AlrehabNotification(int id,
+    public MadinatyNotification(int id,
                                String title,
                                Date publishdate,
                                String imageUrl,

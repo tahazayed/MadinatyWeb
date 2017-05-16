@@ -1,4 +1,4 @@
-package com.taha.alrehab;
+package com.taha.madinaty;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.taha.alrehab.Helpers.ConnectionHelper;
+import com.taha.madinaty.Helpers.ConnectionHelper;
 
 public class SplashScreen extends Activity {
     private static final String TAG = SplashScreen.class.getSimpleName();

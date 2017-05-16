@@ -1,4 +1,4 @@
-package com.taha.alrehab.DB;
+package com.taha.madinaty.DB;
 
 import android.content.ContentValues;
 import android.content.Context;

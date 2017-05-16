@@ -1,4 +1,4 @@
-package com.taha.alrehab.BackgroundServices;
+package com.taha.madinaty.BackgroundServices;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

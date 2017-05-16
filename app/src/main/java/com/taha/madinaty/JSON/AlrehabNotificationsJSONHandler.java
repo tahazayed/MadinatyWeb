@@ -1,10 +1,10 @@
-package com.taha.alrehab.JSON;
+package com.taha.madinaty.JSON;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.taha.alrehab.BusinessEntities.AlrehabNotification;
+import com.taha.madinaty.BusinessEntities.MadinatyNotification;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, List<AlrehabNotification>> {
+public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, List<MadinatyNotification>> {
 
     public static final String COLUMN_ID = "Id";
     public static final String COLUMN_TITLE = "Title";
@@ -44,11 +44,11 @@ public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, L
     }
 
     @Override
-    protected List<AlrehabNotification> doInBackground(String... params) {
+    protected List<MadinatyNotification> doInBackground(String... params) {
         HttpURLConnection connection = null;
         BufferedReader reader = null;
-        //String ImagesUrl = Resources.getSystem().getString(com.taha.alrehab.R.string.ImagesURL);
-        List<AlrehabNotification> AlrehabNotificationList = new ArrayList<>();
+        //String ImagesUrl = Resources.getSystem().getString(com.taha.madinaty.R.string.ImagesURL);
+        List<MadinatyNotification> AlrehabNotificationList = new ArrayList<>();
         try {
             URL url = new URL(params[0]);
             connection = (HttpURLConnection) url.openConnection();
@@ -81,9 +81,9 @@ public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, L
                     String _imageUrl = finalObject.getString(COLUMN_IMAGEURL);
                     String _imageThumbUrl = finalObject.getString(COLUMN_IMAGETHUMBURL);
                     int _type = finalObject.getInt(COLUMN_TYPE);
-                    _imageUrl = _imageUrl.replace("../", "http://cms.alrehablife.com/");
-                    _imageThumbUrl = _imageThumbUrl.replace("../", "http://cms.alrehablife.com/");
-                    AlrehabNotificationList.add(new AlrehabNotification(_id,
+                    _imageUrl = _imageUrl.replace("../", "http://cms.madinatylife.com/");
+                    _imageThumbUrl = _imageThumbUrl.replace("../", "http://cms.madinatylife.com/");
+                    AlrehabNotificationList.add(new MadinatyNotification(_id,
                             _title,
                             _publishdate,
                             _imageUrl,
@@ -115,7 +115,7 @@ public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, L
     }
 
     @Override
-    protected void onPostExecute(List<AlrehabNotification> result) {
+    protected void onPostExecute(List<MadinatyNotification> result) {
         try {
             mClient.onAlrehabNotificationsJSONHandlerClientResult(result);
         } catch (Exception e) {
@@ -124,6 +124,6 @@ public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, L
     }
 
     public interface AlrehabNotificationsJSONHandlerClient {
-        void onAlrehabNotificationsJSONHandlerClientResult(List<AlrehabNotification> result);
+        void onAlrehabNotificationsJSONHandlerClientResult(List<MadinatyNotification> result);
     }
 }

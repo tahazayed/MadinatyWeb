@@ -10,5 +10,6 @@
 app/src/androidTest/
 app/src/test/
 projectFilesBackup/
+/app/build/
 commit_git.bat
 

@@ -11,6 +11,7 @@ app/src/androidTest/
 app/src/test/
 projectFilesBackup/
 /app/build/
+/app/app-release.apk
 *.apk
 commit_git.bat
 

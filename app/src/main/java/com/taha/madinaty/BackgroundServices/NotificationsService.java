@@ -14,7 +14,7 @@ import android.util.Log;
 
 import com.taha.madinaty.BusinessEntities.MadinatyNotification;
 import com.taha.madinaty.DB.UserDBHandler;
-import com.taha.madinaty.JSON.AlrehabNotificationsJSONHandler;
+import com.taha.madinaty.JSON.MadinatyNotificationsJSONHandler;
 import com.taha.madinaty.MainActivity;
 import com.taha.madinaty.R;
 
@@ -30,7 +30,7 @@ import microsoft.aspnet.signalr.client.Logger;
 import microsoft.aspnet.signalr.client.hubs.HubConnection;
 import microsoft.aspnet.signalr.client.hubs.HubProxy;
 
-public class NotificationsService extends Service implements AlrehabNotificationsJSONHandler.AlrehabNotificationsJSONHandlerClient {
+public class NotificationsService extends Service implements MadinatyNotificationsJSONHandler.MadinatyNotificationsJSONHandlerClient {
 
     private static final String TAG = NotificationsService.class.getSimpleName();
     public static boolean isRunning = false;
@@ -131,7 +131,7 @@ public class NotificationsService extends Service implements AlrehabNotification
     private void doServiceWork() {
 
         try {
-            new AlrehabNotificationsJSONHandler(NotificationsService.this).execute(getString(R.string.NotificationAPI) + userId);
+            new MadinatyNotificationsJSONHandler(NotificationsService.this).execute(getString(R.string.NotificationAPI) + userId);
             if (IsDebug) Log.d(TAG, "StoriesJSONHandler invoked...");
 
         } catch (Exception e) {
@@ -155,10 +155,10 @@ public class NotificationsService extends Service implements AlrehabNotification
     }
 
     @Override
-    public void onAlrehabNotificationsJSONHandlerClientResult(List<MadinatyNotification> list) {
+    public void onMadinatyNotificationsJSONHandlerClientResult(List<MadinatyNotification> list) {
         try {
             if (IsDebug)
-                Log.d(TAG, "onAlrehabNotificationsJSONHandlerJSONHandlerClientResult invoked..." + list.size());
+                Log.d(TAG, "onMadinatyNotificationsJSONHandlerJSONHandlerClientResult invoked..." + list.size());
 
 
             final Random rand = new Random();

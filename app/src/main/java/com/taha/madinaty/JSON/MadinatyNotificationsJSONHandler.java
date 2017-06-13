@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, List<MadinatyNotification>> {
+public class MadinatyNotificationsJSONHandler extends AsyncTask<String, String, List<MadinatyNotification>> {
 
     public static final String COLUMN_ID = "Id";
     public static final String COLUMN_TITLE = "Title";
@@ -29,11 +29,11 @@ public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, L
     public static final String COLUMN_IMAGETHUMBURL = "ImageThumbUrl";
     public static final String COLUMN_TYPE = "Type";
     public static final String COLUMN_BODY = "Body";
-    private static final String TAG = AlrehabNotificationsJSONHandler.class.getSimpleName();
-    private final AlrehabNotificationsJSONHandlerClient mClient;
+    private static final String TAG = MadinatyNotificationsJSONHandler.class.getSimpleName();
+    private final MadinatyNotificationsJSONHandlerClient mClient;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
-    public AlrehabNotificationsJSONHandler(AlrehabNotificationsJSONHandlerClient client) {
+    public MadinatyNotificationsJSONHandler(MadinatyNotificationsJSONHandlerClient client) {
         mClient = client;
     }
 
@@ -117,13 +117,13 @@ public class AlrehabNotificationsJSONHandler extends AsyncTask<String, String, L
     @Override
     protected void onPostExecute(List<MadinatyNotification> result) {
         try {
-            mClient.onAlrehabNotificationsJSONHandlerClientResult(result);
+            mClient.onMadinatyNotificationsJSONHandlerClientResult(result);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
         }
     }
 
-    public interface AlrehabNotificationsJSONHandlerClient {
-        void onAlrehabNotificationsJSONHandlerClientResult(List<MadinatyNotification> result);
+    public interface MadinatyNotificationsJSONHandlerClient {
+        void onMadinatyNotificationsJSONHandlerClientResult(List<MadinatyNotification> result);
     }
 }

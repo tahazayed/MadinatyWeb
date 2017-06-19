@@ -41,7 +41,7 @@ public class NotificationsService extends Service implements MadinatyNotificatio
 
     public NotificationsService(Context applicationContext) {
         super();
-        if (IsDebug) Log.d(TAG, "Cconstructor");
+        if (IsDebug) Log.d(TAG, "Constructor");
     }
 
     public NotificationsService() {

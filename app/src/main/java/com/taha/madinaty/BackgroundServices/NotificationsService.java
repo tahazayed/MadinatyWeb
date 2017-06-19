@@ -49,17 +49,17 @@ public class NotificationsService extends Service implements MadinatyNotificatio
 
     @Override
     public void onCreate() {
-        if (IsDebug) Log.d(TAG, "Service onCreate");
-
-        isRunning = true;
-        UserDBHandler db = new UserDBHandler(getApplicationContext());
-        userId = db.getUserId();
-        if (userId.isEmpty()) {
-            userId = UUID.randomUUID().toString();
-            db.updateUser(userId);
-        }
-        db.close();
         try {
+            if (IsDebug) Log.d(TAG, "Service onCreate");
+
+            isRunning = true;
+            UserDBHandler db = new UserDBHandler(getApplicationContext());
+            userId = db.getUserId();
+            if (userId.isEmpty()) {
+                userId = UUID.randomUUID().toString();
+                db.updateUser(userId);
+            }
+            db.close();
             // Create a new console logger
             Logger logger = new Logger() {
 
@@ -143,15 +143,20 @@ public class NotificationsService extends Service implements MadinatyNotificatio
     @Override
     public void onDestroy() {
 
-        isRunning = false;
-        super.onDestroy();
-        if (IsDebug) Log.i(TAG, "ondestroy!");
-        Intent broadcastIntent = new Intent("com.taha.madinaty.BackgroundServices.ActivityRecognition.RestartSensor");
-        sendBroadcast(broadcastIntent);
-        if (timer != null) timer.cancel();
-        if (IsDebug) Log.d(TAG, "Timer stopped...");
+        try {
+            isRunning = false;
+            super.onDestroy();
+            if (IsDebug) Log.i(TAG, "ondestroy!");
+            Intent broadcastIntent = new Intent("com.taha.madinaty.BackgroundServices.ActivityRecognition.RestartSensor");
+            sendBroadcast(broadcastIntent);
+            if (timer != null) timer.cancel();
+            if (IsDebug) Log.d(TAG, "Timer stopped...");
 
-        if (IsDebug) Log.d(TAG, "Service onDestroy");
+            if (IsDebug) Log.d(TAG, "Service onDestroy");
+
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
     }
 
     @Override

@@ -25,6 +25,7 @@ import java.util.TimerTask;
 import java.util.UUID;
 
 import microsoft.aspnet.signalr.client.Action;
+import microsoft.aspnet.signalr.client.ErrorCallback;
 import microsoft.aspnet.signalr.client.LogLevel;
 import microsoft.aspnet.signalr.client.Logger;
 import microsoft.aspnet.signalr.client.hubs.HubConnection;
@@ -89,7 +90,13 @@ public class NotificationsService extends Service implements MadinatyNotificatio
                         public void run(Void obj) throws Exception {
                             if (IsDebug) Log.d(TAG, "NotificationsHub Connected");
                         }
-                    });
+                    }).onError(new ErrorCallback() {
+
+                @Override
+                public void onError(Throwable throwable) {
+                    if (IsDebug) Log.d(TAG, "NotificationsHub Error");
+                }
+            });
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
         }

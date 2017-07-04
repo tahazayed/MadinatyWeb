@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 if (!NotificationsService.isRunning) {
                     try {
                         Intent intent = new Intent(this, NotificationsService.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startService(intent);
                     } catch (Exception e) {
                         Log.e(TAG, e.getMessage());

@@ -8,10 +8,12 @@ import android.util.Log;
 import com.taha.madinaty.BackgroundServices.NotificationsService;
 
 public class AutoStart extends BroadcastReceiver {
-    public void onReceive(Context arg0, Intent arg1) {
+    public void onReceive(Context _context, Intent _intent) {
         try {
-            Intent intent = new Intent(arg0, NotificationsService.class);
-            arg0.startService(intent);
+
+            Intent intent = new Intent(_context, NotificationsService.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            _context.startService(intent);
         } catch (Exception e) {
             Log.e(AutoStart.class.getSimpleName(), e.getMessage());
         }

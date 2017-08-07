@@ -3,6 +3,6 @@
     <string name="SiteURL">http://android.madinatylife.com/</string>
     <string name="ImagesURL">http://cms.madinatylife.com/</string>
     <string name="SiteDomain">madinatylife.com</string>
-    <string name="NotificationAPI">http://www.madinatylife.com/api/Notifications/GetMyNotifications/?UserID=</string>
-    <string name="NotificationsHUB">http://www.madinatylife.com/</string>
+    <string name="NotificationAPI">http://madinatylife.com/api/Notifications/GetMyNotifications/?UserID=</string>
+    <string name="NotificationsHUB">http://madinatylife.com/</string>
 </resources>
